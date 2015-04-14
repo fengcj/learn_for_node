@@ -2,8 +2,11 @@ var fs = require("fs");
 
 
 function copy(src,dest){
-	
-	fs.writeFileSync(dest,fs.readFileSync(src));
+
+	//  fs.writeFileSync(dest,fs.readFileSync(src));
+
+	// for big file
+	fs.createReadStream(src).pipe(fs.createWriteStream(dest));
 
 /*	var readStream = fs.createReadStream(src);
 	var writeStream = fs.createWriteStream(dest);

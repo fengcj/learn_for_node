@@ -6,6 +6,7 @@ var utility = require("utility");
 var app = express();
 
 
+// visit http://localhost:6776/?q=fcj
 app.get("/",function(req,res){
 	var q = req.query.q;
 

@@ -1,0 +1,19 @@
+{
+  "name": "lesson3",
+  "version": "1.0.0",
+  "description": "A simple node project for crawl web pages",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "crwal"
+  ],
+  "author": "fengcj",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "express": "^4.12.3",
+    "superagent": "^1.2.0"
+  }
+}

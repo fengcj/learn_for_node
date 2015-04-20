@@ -1,0 +1,60 @@
+var url = require("url");
+
+var eventproxy = require("eventproxy");
+var superagent = require("superagent");
+var cheerio = require("cheerio");
+
+var cnodeUrl = "https://cnodejs.org/";
+
+
+superagent.get(cnodeUrl).end(function(err,res){
+	if(err){
+		return console.log(err);
+	}
+
+	var topicUrls = [];
+	var $ = cheerio.load(res.text);
+	$("#topic_list .topic_title").each(function(idx,element){
+		var $element = $(element);
+		var href = url.resolve(cnodeUrl,$element.attr("href"));
+		topicUrls.push(href);
+	});
+
+
+
+	var ep = new eventproxy();
+
+	ep.after('getTopic',cnodeUrl.length,function(topics){
+		topics = topics.map(function(topicPair){
+			var topicUrl = topicPair[0];
+			var topicHtml = topicPair[1];
+			var $ = cheerio.load(topicHtml);
+			return ({
+				title: $(".topic_full_title").text().trim(),
+				href: topicUrl,
+				comment1: $(".reply_content").eq(0).text().trim()
+			});
+		});
+
+		console.log('final:');
+		console.log(topics);
+	});
+
+	topicUrls.forEach(function(topicUrl){
+		superagent.get(topicUrl).end(function(err,res){
+			if(err){
+				return console.log(err);
+			}
+			console.log('fetch ' + topicUrl + " successed!");
+			ep.emit("getTopic",[topicUrl,res.text]);
+		})
+	});
+
+});
+
+
+
+
+
+
+

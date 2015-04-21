@@ -1,0 +1,19 @@
+{
+  "name": "lesson6",
+  "version": "1.0.0",
+  "description": "TDD",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "TDD"
+  ],
+  "author": "fengcj",
+  "license": "MIT",
+  "dependencies": {
+    "istanbul": "^0.3.13",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
+  }
+}

@@ -20,3 +20,4 @@ this command will add express and utility to package.json
 - promise: asynchronous functions
 - eventproxy: event control
 - cheerio:Fast, flexible, and lean implementation of core jQuery designed specifically for the server
+- utility: util

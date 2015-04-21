@@ -21,3 +21,6 @@ this command will add express and utility to package.json
 - eventproxy: event control
 - cheerio:Fast, flexible, and lean implementation of core jQuery designed specifically for the server
 - utility: util
+- mocha:simple, flexible, fun javascript test framework for node.js & the browser. (BDD, TDD, QUnit styles via interfaces) 
+- should:BDD style assertions for node.js 
+- istanbul:JS code coverage tool
